@@ -8,12 +8,12 @@ res = []
 i, j = 0,0
 
 while i < size_1 and j < size_2:
-  if test_list1[i] < test_list2[j];
-  res.append(test_list1[i]_
-             i += 1
+  if test_list1[i] < test_list2[j]:
+    res.append(test_list1[i])
+    i += 1
   else:
-        res.apprend(test_list2[j])
-             j += 1
+    res.append(test_list2[j])
+    j += 1
 res = res + test_list1[i:] + test_list2[j:]
              
 print("The combined sorted list is: " +str(res))
