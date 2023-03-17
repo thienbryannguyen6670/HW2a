@@ -1,6 +1,8 @@
 import time
+
 def timestamp(func):
-  def printDate():
-    print(time.ctime())
-    func()
-    return printDate
+  def wrapper(*args, **kwargs):
+    print(f"[{time.ctime()}]")
+    result = func(*args, **kwargs)
+    print(f"[{time.ctime()}]")
+    return wrapper
