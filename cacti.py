@@ -2,6 +2,7 @@ def cacti_number(plot):
     # Get the dimensions of the plot
     rows = len(plot)
     cols = len(plot[0])
+    
     # Count the number of cacti that can still be planted
     count = 0
     for i in range(rows):
@@ -25,8 +26,8 @@ def cacti_number(plot):
                     adjacent_empty = False
                 if i < rows-1 and j < cols-1 and plot[i+1][j+1] == 1:
                     adjacent_empty = False
+                
                 if adjacent_empty:
                     count += 1
-                print(plot[i][j]) 
-              
+    
     return count
