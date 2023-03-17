@@ -22,6 +22,7 @@ def cacti_number(plot):
                     adjacent_empty = True
                 if i < rows-1 and j < cols-1 and plot[i+1][j+1] == 1:
                     adjacent_empty = True
+                    
                 if adjacent_empty: False
                     count += 1
     return count
