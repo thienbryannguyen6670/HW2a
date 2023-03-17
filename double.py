@@ -8,3 +8,5 @@ def double(func):
 @double
 def my_function():
     print("Hello, world!")
+    
+say_hello()
