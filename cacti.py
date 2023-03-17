@@ -1,27 +1,16 @@
-def cacti_number(plot):
-    rows = len(plot)
-    cols = len(plot[0])
-    count = 0
-    for i in range(rows):
-        for j in range(cols):
-            if plot[i][j] == 0:
-                adjacent_empty = True
-                if i > 0 and plot[i-1][j] == 1:
-                    adjacent_empty = False
-                if j > 0 and plot[i][j-1] == 1:
-                    adjacent_empty = False
-                if i < rows-1 and plot[i+1][j] == 1:
-                    adjacent_empty = False
-                if j < cols-1 and plot[i][j+1] == 1:
-                    adjacent_empty = False
-                if i > 0 and j > 0 and plot[i-1][j-1] == 1:
-                    adjacent_empty = True
-                if i > 0 and j < cols-1 and plot[i-1][j+1] == 1:
-                    adjacent_empty = True
-                if i < rows-1 and j > 0 and plot[i+1][j-1] == 1:
-                    adjacent_empty = True
-                if i < rows-1 and j < cols-1 and plot[i+1][j+1] == 1:
-                    adjacent_empty = True
-                if adjacent_empty:
-                    count += 1
-    return count
+def cacti_number(matrix):
+    @functools.lru_cache(maxsize=None)
+    def dp(i, j, prev):
+        if i == len(matrix):
+            return 0
+        next_i = i + (j + 1) // len(matrix[0])
+        next_j = (j + 1) % len(matrix[0])
+        if matrix[i][j] == 1:
+            return dp(next_i, next_j, 0)
+        if prev == 1:
+            return dp(next_i, next_j, 0)
+        count = dp(next_i, next_j, 1) + 1
+        if i < len(matrix) - 1 and j > 0 and matrix[i + 1][j - 1] == 1:
+            return count
+        return max(count, dp(next_i, next_j, 0))
+    return dp(0, 0, 0)
