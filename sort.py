@@ -1,4 +1,4 @@
-def sort_dictionary(_dict):
+def sort(_dict):
     
     sorted_keys = sorted(_dict.keys(), key = lambda x: _dict[x][1])
     
@@ -15,6 +15,6 @@ def sort_dictionary(_dict):
 
 _dict = {'Tom': (5464512, 24), 'Sara': (5446987, 32), 'Mary': (1557896, 20)}
 
-result = sort_dictionary(_dict)
+result = sort(_dict)
 
 print(result)
