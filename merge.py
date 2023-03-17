@@ -12,6 +12,6 @@ def merge(list1, list2):
     merged.extend(list1[i:])
     merged.extend(list2[j:])
     return merged
-print(merge([1,3,5,7],[2,4,6]))
-print(merge([1,2,3,5],[1,2,4,5,6]))
-print(merge([1,5,9],[]))
+#print(merge([1,3,5,7],[2,4,6]))
+#print(merge([1,2,3,5],[1,2,4,5,6]))
+#print(merge([1,5,9],[]))
