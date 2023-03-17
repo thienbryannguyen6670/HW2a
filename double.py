@@ -6,7 +6,7 @@ def double(func):
     return wrapper
 
 @double
-def my_function():
+def say_hello():
     print("Hello, world!")
     
 say_hello()
