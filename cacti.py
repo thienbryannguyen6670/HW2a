@@ -1,16 +1,27 @@
-def cacti_number(matrix):
-    @functools.lru_cache(maxsize=None)
-    def dp(i, j, prev):
-        if i == len(matrix):
-            return 0
-        next_i = i + (j + 1) // len(matrix[0])
-        next_j = (j + 1) % len(matrix[0])
-        if matrix[i][j] == 1:
-            return dp(next_i, next_j, 0)
-        if prev == 1:
-            return dp(next_i, next_j, 0)
-        count = dp(next_i, next_j, 1) + 1
-        if i < len(matrix) - 1 and j > 0 and matrix[i + 1][j - 1] == 1:
-            return count
-        return max(count, dp(next_i, next_j, 0))
-    return dp(0, 0, 0)
+def cacti_number(func):
+    def wrapper(arr):
+        count = 0
+        for i in range(len(arr)):
+            for j in range(len(arr[i])):
+                if arr[i][j] == 0:
+                    if (i == 0 or arr[i-1][j] == 0) and \
+                       (i == len(arr)-1 or arr[i+1][j] == 0) and \
+                       (j == 0 or arr[i][j-1] == 0) and \
+                       (j == len(arr[i])-1 or arr[i][j+1] == 0):
+                        count += 1
+        return count
+    return wrapper
+
+@cacti_number
+def test_cacti_number(arr):
+    pass
+
+test_arr = [
+    [0, 0, 0, 0],
+    [0, 1, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+]
+
+print(test_cacti_number(test_arr))
+
