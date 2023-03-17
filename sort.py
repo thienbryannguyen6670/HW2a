@@ -13,7 +13,7 @@ def sort_dictionary(_dict):
     return result
     
 
-#_dict = {'Tom': (5464512, 24), 'Sara': (5446987, 32), 'Mary': (1557896, 20)}
+_dict = {'Tom': (5464512, 24), 'Sara': (5446987, 32), 'Mary': (1557896, 20)}
 
 result = sort_dictionary(_dict)
 
