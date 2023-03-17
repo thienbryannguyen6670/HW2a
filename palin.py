@@ -1,10 +1,13 @@
-def palindrome(my_str):
-   if my_str == my_str[::-1]:
-    print("True")
-   else:
-    print("False")
-        
-my_list = [1,2,"Espresso","Madeline",2,1]
+def palindrome(lst):
 
-my_list = ' '.join([str(elem) for elem in my_list])
-palindrome(my_list)
+    n = len(lst)
+    for i in range(n // 2):
+        if lst[i] != lst[n - i - 1]:
+            return False
+    return True
+
+assert palindrome([1, 2, "Espresso", "Madeline", 2, 1]) == False
+assert palindrome(['a', True, False, False, True, 'a']) == True
+assert palindrome([1, 2, 3, 4, 3, 2, 1]) == True
+assert palindrome(['hello', 'world']) == False
+print("All test case pass")
