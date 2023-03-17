@@ -1,4 +1,4 @@
-def Palindrome(my_str):
+def palindrome(my_str):
    if my_str == my_str[::-1]:
     print("True")
    else:
@@ -7,4 +7,4 @@ def Palindrome(my_str):
 my_list = [1,2,"Espresso","Madeline",2,1]
 
 my_list = ' '.join([str(elem) for elem in my_list])
-Palindrome(my_list)
+palindrome(my_list)
