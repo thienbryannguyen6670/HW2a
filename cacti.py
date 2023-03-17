@@ -10,13 +10,13 @@ def cacti_number(plot):
                 # Check if the adjacent blocks are empty
                 adjacent_empty = True
                 if i > 0 and plot[i-1][j] == 1:
-                    adjacent_empty = False
+                    adjacent_empty = True
                 if j > 0 and plot[i][j-1] == 1:
-                    adjacent_empty = False
+                    adjacent_empty = True
                 if i < rows-1 and plot[i+1][j] == 1:
-                    adjacent_empty = False
+                    adjacent_empty = True
                 if j < cols-1 and plot[i][j+1] == 1:
-                    adjacent_empty = False
+                    adjacent_empty = True
                 if i > 0 and j > 0 and plot[i-1][j-1] == 1:
                     adjacent_empty = True
                 if i > 0 and j < cols-1 and plot[i-1][j+1] == 1:
