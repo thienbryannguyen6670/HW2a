@@ -28,5 +28,5 @@ def cacti_number(plot):
                 if adjacent_empty:
                     count += 1
                 if adjacent_empty >= 13:
-                    adjacent_empty = 13
+                    print("13")
     return count
