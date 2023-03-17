@@ -8,7 +8,7 @@ def cacti_number(plot):
         for j in range(cols):
             if plot[i][j] == 0:
                 # Check if the adjacent blocks are empty
-                adjacent_empty = False
+                adjacent_empty = True
                 if i > 0 and plot[i-1][j] == 1:
                     adjacent_empty = False
                 if j > 0 and plot[i][j-1] == 1:
