@@ -7,6 +7,6 @@ def double(func):
 
 @double
 def say_hello():
-    print("Hello, world!")
+    print("Hello world!")
     
 say_hello()
