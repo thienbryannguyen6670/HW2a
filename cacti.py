@@ -3,6 +3,7 @@ def cacti_number(func):
     rows = range(len(func))
     cols = range(len(func[0]))
     
+    
     for i in rows:
         for j in cols:
             if(func[i][j] != 1):
@@ -12,10 +13,5 @@ def cacti_number(func):
                             if((i+1<len(func[0]) and func[i+1][j] == 0) or i+1  >= len(func[0])):
                                 func[i][j] = 1
                                 num += 1
-                      
-                    
-                    
-                    
-                    
-     return num
+    return num
                      
