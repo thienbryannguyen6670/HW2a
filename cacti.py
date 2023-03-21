@@ -1,4 +1,4 @@
-def cacti_number(func)
+def cacti_number(func):
     num = 0
     rows = range(len(func))
     cols = range(len(func[0]))
