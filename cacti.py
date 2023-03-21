@@ -1,33 +1,21 @@
-def cacti_number(plot):
-    # Get the dimensions of the plot
-    rows = len(plot)
-    cols = len(plot[0])
+def cacti_number(func)
+    num = 0
+    rows = range(len(func))
+    cols = range(len(func[0]))
     
-    # Count the number of cacti that can still be planted
-    count = 0
-    for i in range(rows):
-        for j in range(cols):
-            if plot[i][j] == 0:
-                # Check if the adjacent blocks are empty
-                adjacent_empty = True
-                if i > 0 and plot[i-1][j] == 1:
-                    adjacent_empty = False
-                if j > 0 and plot[i][j-1] == 1:
-                    adjacent_empty = False
-                if i < rows-1 and plot[i+1][j] == 1:
-                    adjacent_empty = False
-                if j < cols-1 and plot[i][j+1] == 1:
-                    adjacent_empty = False
-                if i > 0 and j > 0 and plot[i-1][j-1] == 1:
-                    adjacent_empty = True
-                if i > 0 and j < cols-1 and plot[i-1][j+1] == 1:
-                    adjacent_empty = True
-                if i < rows-1 and j > 0 and plot[i+1][j-1] == 1:
-                    adjacent_empty = True
-                if i < rows-1 and j < cols-1 and plot[i+1][j+1] == 1:
-                    adjacent_empty = True
-                
-                if adjacent_empty:
-                    count += 1
-    
-    return count
+    for i in rows:
+        for j in cols:
+            if(func[i][j] != 1):
+                if((i-1 >= 0 and func[i-1][j] == 0) or i-1 < 0):
+                    if((j-1 >= 0 and func[i][j-1]==0) or j-1 < 0):
+                        if((j+1 < len(func[0]) and func[i][j+1] == 0) or j+1 >= len(func[0])):
+                            if((i+1<len(func[0]) and func[i+1][j] == 0) or i+1  >= len(func[0])):
+                                func[i][j] = 1
+                                num += 1
+                      
+                    
+                    
+                    
+                    
+     return num
+                     
